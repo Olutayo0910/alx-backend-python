@@ -10,4 +10,4 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     delays = await asyncio.gather(*tuple(map(lambda _: task_wait_random(
         max_delay), range(n))))
     sorted_delays = sorted(delays)
-    return sort_delays
+    return sorted_delays
