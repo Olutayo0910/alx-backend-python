@@ -9,6 +9,7 @@ from unittest.mock import patch, PropertyMock
 from client import GithubOrgClient
 from fixtures import TEST_PAYLOAD
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """
     Unit tests for the GithubOrgClient class
@@ -38,7 +39,8 @@ class TestGithubOrgClient(unittest.TestCase):
         with patch('client.GithubOrgClient.org',
                    PropertyMock(return_value=response_payload)):
             client = GithubOrgClient(org_name)
-            self.assertEqual(client._public_repos_url, response_payload.get('repos_url'))
+            self.assertEqual(client._public_repos_url,
+                    response_payload.get('repos_url'))
 
     @patch('client.get_json')
     def test_public_repos(self, mocked_get_json):
